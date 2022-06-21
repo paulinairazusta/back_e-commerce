@@ -21,7 +21,7 @@ const culo = async function getCategories() {
       description:
         "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
       price: 100,
-      image: "../public/images/carrot.jpg",
+      image: "../public/images/carrot-cake.jpg",
       stock: 200,
       destacado: true,
       slug: "",
