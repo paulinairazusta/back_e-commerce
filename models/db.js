@@ -10,4 +10,7 @@ module.exports = async () => {
   //   .on("error", (error) => {
   //     console.log(error);
   //   });
+
+  await require("../seeders/userSeeder")();
+  console.log("Los usuarios fueron creados");
 };
