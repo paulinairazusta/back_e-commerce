@@ -12,6 +12,6 @@ module.exports = async () => {
   //   });
 
   await require("../seeders/userSeeder"); // poner "()" al final para volver a crear los datos.
-  await require("../seeders/productSeeder")();
+  await require("../seeders/productSeeder"); //();
   await require("../seeders/categorySeeder"); //();
 };
