@@ -5,6 +5,10 @@ const app = express();
 const port = process.env.PORT;
 console.log(port);
 
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const db = require("./models/db");
 db();
 
