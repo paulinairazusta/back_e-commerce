@@ -50,5 +50,5 @@ const users = [
 module.exports = async () => {
   await User.deleteMany({});
   await User.insertMany(users);
-  console.log("hola");
+  console.log("Users have been created");
 };

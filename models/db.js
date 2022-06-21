@@ -11,6 +11,5 @@ module.exports = async () => {
   //     console.log(error);
   //   });
 
-  await require("../seeders/userSeeder")();
-  console.log("Los usuarios fueron creados");
+  await require("../seeders/userSeeder"); // poner "()" al final para volver a crear los datos.
 };
