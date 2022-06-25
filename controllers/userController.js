@@ -2,16 +2,21 @@ const User = require("../models/userModel");
 
 const userController = {
 	register: async (req, res) => {
-		await User.create({
-			firstname: req.body.firstname,
-			lastname: req.body.lastname,
-			email: req.body.email,
-			password: req.body.password,
-			address: req.body.address,
-			tel: req.body.tel,
-			orderList: [],
-		});
-		res.send("usuario registrado!");
+		const user = await User.findOne({ email: req.body.email });
+		if (!user) {
+			await User.create({
+				firstname: req.body.firstname,
+				lastname: req.body.lastname,
+				email: req.body.email,
+				password: req.body.password,
+				address: req.body.address,
+				tel: req.body.tel,
+				orderList: [],
+			});
+			res.send("usuario registrado!");
+		} else {
+			res.send("Este usuario ya existe!");
+		}
 	},
 	getAllUsers: async (req, res) => {
 		const users = await User.find();
