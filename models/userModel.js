@@ -31,7 +31,8 @@ User.pre("save", async function (next) {
 
 	next();
 });
-//busca un usuario y lo compara con la password que le llega
+//Compara la password que le llega con la de la base de datos y retorna TRUE o FALSE.
+//Funcionaba con Passport, hay que ver que pasa ahora.
 User.methods.comparePass = async function (password) {
 	return await bcrypt.compare(password, this.password);
 };

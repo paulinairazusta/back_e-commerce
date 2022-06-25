@@ -9,6 +9,9 @@ router.get("/api/product/:id", productController.getProductById);
 
 router.get("/api/users", userController.getAllUsers);
 router.get("/api/user/:id", userController.getUserById);
+router.post("/api/user", userController.register);
+
+router.post("/api/login", userController.login);
 
 router.get("/api/categories", categoryController.getAllCategories);
 router.get("/api/category/:id", categoryController.getCategoryById);
