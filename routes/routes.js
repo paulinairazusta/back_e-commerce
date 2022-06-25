@@ -6,6 +6,7 @@ const categoryController = require("../controllers/categoryController");
 
 router.get("/api/products", productController.getAllProducts);
 router.get("/api/product/:id", productController.getProductById);
+router.post("/api/product", productController.createProduct);
 
 router.get("/api/users", userController.getAllUsers);
 router.get("/api/user/:id", userController.getUserById);
