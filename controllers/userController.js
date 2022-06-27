@@ -1,4 +1,6 @@
 const User = require("../models/userModel");
+//libreria para generar el token una vez logueado correctamente
+const jwt = require("jsonwebtoken");
 
 const userController = {
 	register: async (req, res) => {
@@ -27,11 +29,23 @@ const userController = {
 
 		res.send(user);
 	},
-	//TODO: Al loguearse hay que mandar el token!!!
-	login: async (req, res) => {
-		const user = await User.findOne({ email: req.body.email });
 
-		const result = await user.comparePass(req.body.password);
+	login: async (req, res) => {
+		//busco si el usuario existe en la base de datos y comparo las contraseñas
+		try {
+			const user = await User.findOne({ email: req.body.email });
+			const result = await user.comparePass(req.body.password);
+			if (user && result) {
+				const userEmail = user.email;
+				jwt.sign(userEmail, process.env.SECRET, (err, token) => {
+					res.json({ accesToken: token });
+				});
+			} else {
+				res.json({ mensaje: "Credenciales incorrectas" });
+			}
+		} catch (error) {
+			res.json({ mensaje: "Credenciales incorrectas" });
+		}
 	},
 };
 
