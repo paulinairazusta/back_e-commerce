@@ -14,25 +14,25 @@ const productController = {
   getCakes: async (req, res) => {
     const products = await Product.find({
       category: "62b4bfb2188f710b435fbea5",
-    });
+    }).populate("category");
     res.send(products);
   },
   getTruffles: async (req, res) => {
     const products = await Product.find({
       category: "62b4bfb2188f710b435fbea6",
-    });
+    }).populate("category");
     res.send(products);
   },
   getCups: async (req, res) => {
     const products = await Product.find({
       category: "62b4bfb2188f710b435fbea7",
-    });
+    }).populate("category");
     res.send(products);
   },
   getTarts: async (req, res) => {
     const products = await Product.find({
       category: "62b4bfb2188f710b435fbea8",
-    });
+    }).populate("category");
     res.send(products);
   },
   createProduct: async (req, res) => {
