@@ -115,6 +115,94 @@ module.exports = async function getCategories() {
       slug: "",
       category: categories[1],
     },
+    {
+      name: "Fruit Tart",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 200,
+      image: "fruit-tart.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[3],
+    },
+    {
+      name: "Match Tart",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 170,
+      image: "matcha-tart.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[3],
+    },
+    {
+      name: "Feuille",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 170,
+      image: "feuille.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[0],
+    },
+    {
+      name: "Kladdkaka",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 220,
+      image: "kladdkaka.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[0],
+    },
+    {
+      name: "Dariole",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 210,
+      image: "dariole.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[0],
+    },
+    {
+      name: "Tiramisu cup",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 180,
+      image: "tiramisu-cup.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[2],
+    },
+    {
+      name: "Fruit cup",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 180,
+      image: "fruit-cup.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[2],
+    },
+    {
+      name: "Mousse cup",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 180,
+      image: "mousse-cup.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[2],
+    },
   ];
   await Product.deleteMany({});
   await Product.insertMany(products);
