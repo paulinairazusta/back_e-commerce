@@ -1,5 +1,6 @@
 const Product = require("../models/productModel");
 const Category = require("../models/categoryModel");
+const slugify = require("slugify");
 
 module.exports = async function getCategories() {
   const categories = await Category.find();
@@ -206,5 +207,13 @@ module.exports = async function getCategories() {
   ];
   await Product.deleteMany({});
   await Product.insertMany(products);
+  async function createSlugs() {
+    const createdProducts = await Product.find();
+    for (product of createdProducts) {
+      product.slug = slugify(product.name, { lower: true });
+      await product.save();
+    }
+  }
+  createSlugs();
   console.log("Products have been created");
 };

@@ -6,8 +6,10 @@ const productController = {
 
     res.send(products);
   },
-  getProductById: async (req, res) => {
-    const product = await Product.findById(req.params.id).populate("category");
+  getProductBySlug: async (req, res) => {
+    const product = await Product.findOne({ slug: req.params.slug }).populate(
+      "category"
+    );
 
     res.send(product);
   },

@@ -8,21 +8,23 @@ const jwt = require("jsonwebtoken");
 const { expressjwt: checkJwt } = require("express-jwt");
 
 router.get("/api/products", productController.getAllProducts);
-router.get("/api/product/:id", productController.getProductById);
+router.get("/api/product/:slug", productController.getProductBySlug);
+
 router.post("/api/product", productController.createProduct);
+
 router.get("/api/cakes", productController.getCakes);
 router.get("/api/truffles", productController.getTruffles);
 router.get("/api/cups", productController.getCups);
 router.get("/api/tarts", productController.getTarts);
 
 router.get("/api/users", userController.getAllUsers);
-router.get("/api/user/:id", userController.getUserById);
+router.get("/api/user/:slug", userController.getUserBySlug);
 router.post("/api/user", userController.register);
 
 router.post("/api/login", userController.login);
 
 router.get("/api/categories", categoryController.getAllCategories);
-router.get("/api/category/:id", categoryController.getCategoryById);
+// router.get("/api/category/:id", categoryController.getCategoryById);
 
 //ruta de prueba para el middleware JWT
 // router.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
