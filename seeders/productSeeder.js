@@ -204,6 +204,17 @@ module.exports = async function getCategories() {
       slug: "",
       category: categories[2],
     },
+    {
+      name: "Cheesecake",
+      description:
+        "Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
+      price: 180,
+      image: "cheesecake.jpg",
+      stock: 200,
+      destacado: false,
+      slug: "",
+      category: categories[0],
+    },
   ];
   await Product.deleteMany({});
   await Product.insertMany(products);

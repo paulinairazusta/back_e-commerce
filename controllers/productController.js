@@ -10,7 +10,6 @@ const productController = {
     const product = await Product.findOne({ slug: req.params.slug }).populate(
       "category"
     );
-
     res.send(product);
   },
   getCakes: async (req, res) => {
