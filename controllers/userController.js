@@ -33,8 +33,9 @@ const userController = {
   login: async (req, res) => {
     //busco si el usuario existe en la base de datos y comparo las contraseñas
     try {
-      const user = await User.findOne({ email: req.body.email });
-      const result = await user.comparePass(req.body.password);
+      const user = await User.findOne({ email: req.body.email.inputEmail });
+      const result = await user.comparePass(req.body.password.inputPassword);
+
       if (user && result) {
         const userEmail = user.email;
         jwt.sign(userEmail, process.env.SECRET, (err, token) => {
@@ -46,6 +47,7 @@ const userController = {
     } catch (error) {
       res.json({ mensaje: "Credenciales incorrectas" });
     }
+    //
   },
 };
 
