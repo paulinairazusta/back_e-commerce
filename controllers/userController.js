@@ -4,15 +4,16 @@ const jwt = require("jsonwebtoken");
 
 const userController = {
   register: async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
+    console.log("entro al registro")
+    const user = await User.findOne({ email: req.body.email.inputEmail });
     if (!user) {
       await User.create({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        password: req.body.password,
-        address: req.body.address,
-        tel: req.body.tel,
+        firstname: req.body.firstname.inputName,
+        lastname: req.body.lastname.inputLastName,
+        email: req.body.email.inputEmail,
+        password: req.body.password.inputPassword,
+        address: req.body.address.inputAddress,
+        tel: req.body.tel.inputPhone,
         orderList: [],
       });
       res.send("usuario registrado!");
