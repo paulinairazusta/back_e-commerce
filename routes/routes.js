@@ -13,6 +13,8 @@ router.get("/api/product/:slug", productController.getProductBySlug);
 
 router.post("/api/product", productController.createProduct);
 
+router.patch("/api/product",productController.productSold);
+
 router.get("/api/cakes", productController.getCakes);
 router.get("/api/truffles", productController.getTruffles);
 router.get("/api/cups", productController.getCups);

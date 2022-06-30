@@ -48,6 +48,10 @@ const productController = {
     });
     res.send("producto agregado!");
   },
+  //Entra aca cuando se hace checkout en el carrito
+  productSold:async(req,res)=>{
+    res.send("exitoo")
+  }
 };
 
 module.exports = productController;
