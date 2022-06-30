@@ -26,6 +26,8 @@ router.post("/api/login", userController.login);
 
 router.get("/api/categories", categoryController.getAllCategories);
 
+router.get("/api/admins", adminController.getAllAdmins);
+
 router.post("/admin/register", adminController.register);
 router.post("/admin/login", adminController.login);
 

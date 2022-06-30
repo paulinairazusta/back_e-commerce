@@ -2,14 +2,19 @@ const Admin = require("../models/adminModel.js");
 const jwt = require("jsonwebtoken");
 
 const adminController = {
+  getAllAdmins: async (req, res) => {
+    const admins = await Admin.find();
+    res.send(admins);
+  },
   register: async (req, res) => {
-    const user = await Admin.findOne({ email: req.body.email });
-    if (!user) {
-      await User.create({
+    const admin = await Admin.findOne({ email: req.body.email });
+    if (!admin) {
+      await Admin.create({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password,
+        isAdmin: false,
       });
       res.send("Usuario registrado!");
     } else {
@@ -18,11 +23,8 @@ const adminController = {
   },
   login: async (req, res) => {
     try {
-      console.log(req.body.email.email, req.body.password.password);
       const admin = await Admin.findOne({ email: req.body.email.email });
-      console.log(admin);
       const result = await admin.comparePass(req.body.password.password);
-      console.log(result);
 
       if (admin && result && admin.isAdmin) {
         const adminEmail = admin.email;

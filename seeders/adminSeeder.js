@@ -3,11 +3,11 @@ const Admin = require("../models/adminModel");
 module.exports = async () => {
   await Admin.deleteMany({});
   const admin = new Admin({
-    firstname: "Pan",
-    lastname: "Doradito",
-    email: "pandoradito@user.com",
+    firstname: "Main",
+    lastname: "Admin",
+    email: "mainadmin@admin.com",
     password: "1234",
-    isAdmin: false,
+    isAdmin: true,
   });
   admin.save();
   console.log("Admins have been created!");
