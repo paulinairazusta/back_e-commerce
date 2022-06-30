@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 
 const userController = {
   register: async (req, res) => {
-    console.log("entro al registro")
     const user = await User.findOne({ email: req.body.email.inputEmail });
     if (!user) {
       await User.create({

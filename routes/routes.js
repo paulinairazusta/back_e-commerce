@@ -8,32 +8,38 @@ const adminController = require("../controllers/adminController");
 const jwt = require("jsonwebtoken");
 const { expressjwt: checkJwt } = require("express-jwt");
 
+//Product routes
+
 router.get("/api/products", productController.getAllProducts);
 router.get("/api/product/:slug", productController.getProductBySlug);
 
 router.post("/api/product", productController.createProduct);
 
-router.patch("/api/product",productController.productSold);
+router.patch("/api/product", productController.productSold);
 
 router.get("/api/cakes", productController.getCakes);
 router.get("/api/truffles", productController.getTruffles);
 router.get("/api/cups", productController.getCups);
 router.get("/api/tarts", productController.getTarts);
 
+//User routes
+
 router.get("/api/users", userController.getAllUsers);
 router.get("/api/user/:slug", userController.getUserBySlug);
 router.post("/api/user", userController.register);
-
 router.post("/api/login", userController.login);
 
+//Category routes
+
 router.get("/api/categories", categoryController.getAllCategories);
+router.post("/create/category", categoryController.createCategory);
+
+//Admin routes
 
 router.get("/api/admins", adminController.getAllAdmins);
 
 router.post("/admin/register", adminController.register);
 router.post("/admin/login", adminController.login);
-
-// router.get("/api/category/:id", categoryController.getCategoryById);
 
 //ruta de prueba para el middleware JWT
 // router.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
