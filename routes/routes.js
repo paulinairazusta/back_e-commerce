@@ -3,6 +3,7 @@ const router = express.Router();
 const productController = require("../controllers/productController");
 const userController = require("../controllers/userController");
 const categoryController = require("../controllers/categoryController");
+const adminController = require("../controllers/adminController");
 //importamos lo necesario para usar el middleware de jwt
 const jwt = require("jsonwebtoken");
 const { expressjwt: checkJwt } = require("express-jwt");
@@ -26,6 +27,10 @@ router.post("/api/user", userController.register);
 router.post("/api/login", userController.login);
 
 router.get("/api/categories", categoryController.getAllCategories);
+
+router.post("/admin/register", adminController.register);
+router.post("/admin/login", adminController.login);
+
 // router.get("/api/category/:id", categoryController.getCategoryById);
 
 //ruta de prueba para el middleware JWT

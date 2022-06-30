@@ -77,5 +77,5 @@ module.exports = async () => {
     });
     await user.save();
   }
-  console.log("Usuarios creados!");
+  console.log("Users have been created!");
 };
