@@ -50,7 +50,7 @@ const productController = {
   },
   //Entra aca cuando se hace checkout en el carrito
   productSold:async(req,res)=>{
-    res.json({message:"exitoo"})
+    res.send("exitoo")
   }
 };
 
