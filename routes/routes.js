@@ -43,6 +43,7 @@ router.post("/admin/register", adminController.register);
 router.post("/admin/login", adminController.login);
 
 //Order routes
+router.get("/api/orders", orderController.getOrders);
 router.post("/create/order", orderController.createOrder);
 
 //ruta de prueba para el middleware JWT
