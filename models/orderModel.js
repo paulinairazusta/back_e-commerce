@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const Order = Schema({
-  productsNames: [],
-  productsQuantity: [],
+  products: [],
   state: String,
   buyer: [
     {

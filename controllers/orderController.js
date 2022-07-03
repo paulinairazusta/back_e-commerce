@@ -3,8 +3,7 @@ const Order = require("../models/orderModel");
 const orderController = {
   createOrder: async (req, res) => {
     await Order.create({
-      productsNames: req.body.productsName,
-      productsQuantity: req.body.productsQuantity,
+      products: req.body.products,
       state: "Pago pendiente",
       buyer: [],
     });
