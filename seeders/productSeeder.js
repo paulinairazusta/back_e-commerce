@@ -4,7 +4,6 @@ const slugify = require("slugify");
 
 module.exports = async function getCategories() {
 	const categories = await Category.find();
-	console.log(categories);
 	const products = [
 		{
 			name: "Coconut tart",
