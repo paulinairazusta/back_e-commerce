@@ -3,13 +3,15 @@ const Schema = mongoose.Schema;
 
 const Order = Schema({
   products: [],
-  state: String,
+  status: String,
   buyer: [
     {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
   ],
+  date: Date,
+  totalPrice: Number,
 });
 
 module.exports = mongoose.model("Order", Order);

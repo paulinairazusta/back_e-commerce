@@ -4,8 +4,10 @@ const orderController = {
   createOrder: async (req, res) => {
     await Order.create({
       products: req.body.products,
-      state: "Pago pendiente",
+      status: "Pago pendiente",
       buyer: [],
+      date: new Date(),
+      totalPrice: req.body.totalPrice,
     });
     res.send("Order created");
   },
