@@ -43,7 +43,6 @@ const productController = {
 			price: req.body.price,
 			image: req.body.image,
 			destacado: req.body.destacado,
-			slug: "",
 			category: req.body.category, //Hay que pasarle el id de la categoria!!
 		});
 		res.send("producto agregado!");
@@ -51,6 +50,13 @@ const productController = {
 	//Entra aca cuando se hace checkout en el carrito
 	productSold: async (req, res) => {
 		res.send("exitoo");
+	},
+	productAvailable: async (req, res) => {
+		const mipro = await Product.updateOne(
+			{ _id: req.params._id },
+			{ available: !available }
+		);
+		console.log(mipro.available);
 	},
 };
 

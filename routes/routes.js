@@ -18,6 +18,8 @@ router.post("/api/product", productController.createProduct);
 
 router.patch("/api/product", productController.productSold);
 
+router.delete("/api/product/:id", productController.productAvailable);
+
 router.get("/api/cakes", productController.getCakes);
 router.get("/api/truffles", productController.getTruffles);
 router.get("/api/cups", productController.getCups);
@@ -49,10 +51,10 @@ router.post("/create/order", orderController.createOrder);
 //ruta de prueba para el middleware JWT
 // router.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
 router.get(
-  "/prueba",
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-  (req, res) => {
-    res.send(req.user);
-  }
+	"/prueba",
+	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+	(req, res) => {
+		res.send(req.user);
+	}
 );
 module.exports = router;
