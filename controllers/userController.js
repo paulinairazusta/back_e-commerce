@@ -39,7 +39,18 @@ const userController = {
       if (user && result) {
         const userEmail = user.email;
         jwt.sign(userEmail, process.env.SECRET, (err, token) => {
-          res.json({ accesToken: token, user });
+          res.json({
+            accesToken: token,
+            user: {
+              _id: user._id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              address: user.address,
+              phone: user.tel,
+              orderList: user.orderList,
+            },
+          });
         });
       } else {
         res.json({ message: "Wrong credentials" });

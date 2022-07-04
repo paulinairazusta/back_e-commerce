@@ -60,7 +60,7 @@ module.exports = async () => {
 
   for (let i = 0; i < users.length; i++) {
     const firstname = users[i].firstname;
-    const lastname = users[i].lastName;
+    const lastname = users[i].lastname;
     const email = users[i].email;
     const password = users[i].password;
     const address = users[i].address;
