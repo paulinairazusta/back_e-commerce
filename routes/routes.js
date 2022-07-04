@@ -23,7 +23,13 @@ router.delete("/api/product/:id", productController.productAvailable);
 // User routes
 
 router.get("/api/users", userController.getAllUsers);
-router.get("/api/user/:slug", userController.getUserBySlug);
+/*ESTA RUTA SE CARGA CUANDO EL USUARIO ESTA LOGUEADO Y ENTRA A SU PERFIL, 
+SI NO TIENE TOKEN NO PUEDE INGRESAR, SOLO ES PARA PROBAR LA INFO YA ESTA EN LA STORE*/
+router.get(
+	"/api/user/:id",
+	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+	userController.getUserById
+);
 router.post("/api/user", userController.register);
 router.post("/api/login", userController.login);
 
@@ -46,10 +52,10 @@ router.post("/create/order", orderController.createOrder);
 //ruta de prueba para el middleware JWT
 // router.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
 router.get(
-  "/prueba",
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-  (req, res) => {
-    res.send(req.user);
-  }
+	"/prueba",
+	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+	(req, res) => {
+		res.send(req.user);
+	}
 );
 module.exports = router;
