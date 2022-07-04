@@ -10,12 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// app.use("/", router);
 routes(app);
 
 const db = require("./models/db");
-// db();
+db();
 
 app.listen(port, () => {
-  console.log("Server running");
+	console.log("Server running");
 });
