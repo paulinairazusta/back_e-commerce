@@ -12,6 +12,7 @@ const Order = Schema({
   ],
   date: Date,
   totalPrice: Number,
+  user: {},
 });
 
 module.exports = mongoose.model("Order", Order);

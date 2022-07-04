@@ -8,6 +8,7 @@ const orderController = {
       buyer: [],
       date: new Date(),
       totalPrice: req.body.totalPrice,
+      user: req.body.user,
     });
     res.send("Order created");
   },
