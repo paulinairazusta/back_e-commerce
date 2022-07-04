@@ -1,61 +1,20 @@
-const express = require("express");
-const router = express.Router();
-const productController = require("../controllers/productController");
-const userController = require("../controllers/userController");
-const categoryController = require("../controllers/categoryController");
-const adminController = require("../controllers/adminController");
-const orderController = require("../controllers/orderController");
-//importamos lo necesario para usar el middleware de jwt
-const jwt = require("jsonwebtoken");
-const { expressjwt: checkJwt } = require("express-jwt");
+const adminRoutes = require("./adminRoutes");
+const categoryRoutes = require("./categoryRoutes.js");
+const orderRoutes = require("./orderRoutes");
+const productRoutes = require("./productRoutes");
+const userRoutes = require("./userRoutes");
 
-// Product routes
-
-router.get("/api/products", productController.getAllProducts);
-router.get("/api/product/:slug", productController.getProductBySlug);
-
-router.post("/api/product", productController.createProduct);
-
-router.patch("/api/product", productController.productSold);
-
-router.delete("/api/product/:id", productController.productAvailable);
-
-// User routes
-
-router.get("/api/users", userController.getAllUsers);
-/*ESTA RUTA SE CARGA CUANDO EL USUARIO ESTA LOGUEADO Y ENTRA A SU PERFIL, 
-SI NO TIENE TOKEN NO PUEDE INGRESAR, SOLO ES PARA PROBAR LA INFO YA ESTA EN LA STORE*/
-router.get(
-	"/api/user/:id",
-	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-	userController.getUserById
-);
-router.post("/api/user", userController.register);
-router.post("/api/login", userController.login);
-
-// Category routes
-
-router.get("/api/categories", categoryController.getAllCategories);
-router.post("/create/category", categoryController.createCategory);
-
-// Admin routes
-
-router.get("/api/admins", adminController.getAllAdmins);
-
-router.post("/admin/register", adminController.register);
-router.post("/admin/login", adminController.login);
-
-// Order routes
-router.get("/api/orders", orderController.getOrders);
-router.post("/create/order", orderController.createOrder);
-
-//ruta de prueba para el middleware JWT
-// router.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
-router.get(
-	"/prueba",
-	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-	(req, res) => {
-		res.send(req.user);
-	}
-);
-module.exports = router;
+// router.get(
+// 	"/prueba",
+// 	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+// 	(req, res) => {
+// 		res.send(req.user);
+// 	}
+// );
+module.exports = (app) => {
+  app.use(adminRoutes);
+  app.use(categoryRoutes);
+  app.use(orderRoutes);
+  app.use(productRoutes);
+  app.use(userRoutes);
+};
