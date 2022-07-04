@@ -14,7 +14,7 @@ app.use(cors());
 routes(app);
 
 const db = require("./models/db");
-db();
+// db();
 
 app.listen(port, () => {
   console.log("Server running");
