@@ -1,6 +1,7 @@
 const Product = require("../models/productModel");
 const slugify = require("slugify");
 const formidable = require("formidable");
+// const axios = require("axios");
 
 const productController = {
 	getAllProducts: async (req, res) => {
@@ -26,11 +27,24 @@ const productController = {
 				next(err);
 				return;
 			}
+			// await axios.post(
+			// 	"https://tkyarzymrutnhhccfvhu.supabase.co",
+			// 	{
+			// 		headers: {
+			// 			Authorization:
+			// 				"Bearer " +
+			// 				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreWFyenltcnV0bmhoY2Nmdmh1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1Njk1MzQxOSwiZXhwIjoxOTcyNTI5NDE5fQ.-Wm_cvjKNxKs272HnmvdEzGfgNmRWknVNPYmi-Fw9z4",
+			// 		},
+			// 	},
+			// 	{
+			// 		image: files.image.originalFilename,
+			// 	}
+			// );
 			await Product.create({
 				name: fields.name,
 				description: fields.description,
 				price: fields.price,
-				image: files.image.newFilename,
+				image: files.image.originalFilename,
 				destacado: fields.destacado,
 				slug: slugify(fields.name, { lower: true }),
 				category: fields.category, //Hay que pasarle el id de la categoria!!
