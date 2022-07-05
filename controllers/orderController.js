@@ -10,7 +10,6 @@ const orderController = {
       totalPrice: req.body.totalPrice,
       user: req.body.user,
     });
-    console.log("esto!!!", newOrder);
     const user = await User.findById(req.body.user._id);
     user.orderList.push(newOrder);
     user.save();

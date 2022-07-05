@@ -26,10 +26,17 @@ const adminController = {
       const admin = await Admin.findOne({ email: req.body.email.email });
       const result = await admin.comparePass(req.body.password.password);
 
-      if (admin && result && admin.isAdmin) {
+      if (admin && result) {
         const adminEmail = admin.email;
         jwt.sign(adminEmail, process.env.SECRET, (err, token) => {
-          res.json({ accesToken: token });
+          res.json({
+            accesToken: token,
+            admin: {
+              firstname: admin.firstname,
+              lastname: admin.lastname,
+              email: admin.email,
+            },
+          });
         });
       } else {
         res.json({ mensaje: "Credenciales incorrectas" });
