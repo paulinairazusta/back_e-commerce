@@ -1,7 +1,13 @@
 const Product = require("../models/productModel");
 const slugify = require("slugify");
 const formidable = require("formidable");
-// const axios = require("axios");
+const { createClient } = require("@supabase/supabase-js");
+const supabase = createClient(
+	process.env.SUPABASE_URL,
+	process.env.SUPABASE_KEY
+);
+const path = require("path");
+const fs = require("fs");
 
 const productController = {
 	getAllProducts: async (req, res) => {
@@ -18,7 +24,6 @@ const productController = {
 	createProduct: (req, res, next) => {
 		const form = formidable({
 			multiples: true,
-			uploadDir: __dirname + "/../public/images",
 			keepExtensions: true,
 		});
 
@@ -27,24 +32,22 @@ const productController = {
 				next(err);
 				return;
 			}
-			// await axios.post(
-			// 	"https://tkyarzymrutnhhccfvhu.supabase.co",
-			// 	{
-			// 		headers: {
-			// 			Authorization:
-			// 				"Bearer " +
-			// 				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRreWFyenltcnV0bmhoY2Nmdmh1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1Njk1MzQxOSwiZXhwIjoxOTcyNTI5NDE5fQ.-Wm_cvjKNxKs272HnmvdEzGfgNmRWknVNPYmi-Fw9z4",
-			// 		},
-			// 	},
-			// 	{
-			// 		image: files.image.originalFilename,
-			// 	}
-			// );
+			const ext = path.extname(files.image.filepath);
+			const newFileName = `image_${Date.now()}${ext}`;
+
+			const { data, error } = await supabase.storage
+				.from("images")
+				.upload(newFileName, fs.createReadStream(files.image.filepath), {
+					cacheControl: "3600",
+					upsert: false,
+					contentType: files.image.mimetype,
+				});
+			console.log(data);
 			await Product.create({
 				name: fields.name,
 				description: fields.description,
 				price: fields.price,
-				image: files.image.originalFilename,
+				image: data.Key,
 				destacado: fields.destacado,
 				slug: slugify(fields.name, { lower: true }),
 				category: fields.category, //Hay que pasarle el id de la categoria!!
