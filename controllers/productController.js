@@ -47,7 +47,7 @@ const productController = {
 				name: fields.name,
 				description: fields.description,
 				price: fields.price,
-				image: files.image.originalName,
+				image: data.Key,
 				destacado: fields.destacado,
 				slug: slugify(fields.name, { lower: true }),
 				category: fields.category, //Hay que pasarle el id de la categoria!!
