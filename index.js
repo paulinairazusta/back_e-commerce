@@ -10,7 +10,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(checkJwt({ secret: process.env.API_SECRET, algorithms: ["HS256"] }));
+// app.use(checkJwt({ secret: process.env.API_SECRET, algorithms: ["HS256"] }));
 
 routes(app);
 
