@@ -1,6 +1,7 @@
 const express = require("express");
 const userRouter = express.Router();
 const userController = require("../controllers/userController");
+const { expressjwt: checkJwt } = require("express-jwt");
 
 userRouter.post("/api/user", userController.register);
 userRouter.post("/api/login", userController.login);

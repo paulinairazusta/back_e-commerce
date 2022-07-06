@@ -1,6 +1,7 @@
 const express = require("express");
 const orderRouter = express.Router();
 const orderController = require("../controllers/orderController");
+const { expressjwt: checkJwt } = require("express-jwt");
 
 orderRouter.use(
   checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
