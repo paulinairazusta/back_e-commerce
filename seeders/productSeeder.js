@@ -10,7 +10,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 100,
-			image: "coconut-tart.jpg",
+			image: "images/coconut-tart.jpg",
 			stock: 200,
 			available: true,
 			featured: true,
@@ -22,7 +22,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 100,
-			image: "carrot-cake.jpg",
+			image: "images/carrot-cake.jpg",
 			stock: 200,
 			available: true,
 			featured: true,
@@ -34,7 +34,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 150,
-			image: "strawberry-tart.jpg",
+			image: "images/strawberry-tart.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -46,7 +46,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 100,
-			image: "chocolate-tart.jpg",
+			image: "images/chocolate-tart.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -58,7 +58,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 85,
-			image: "orange-truffle.jpg",
+			image: "images/orange-truffle.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -70,7 +70,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 299,
-			image: "cream-cake.jpg",
+			image: "images/cream-cake.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -82,7 +82,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 120,
-			image: "sponge-cake.jpg",
+			image: "images/sponge-cake.jpg",
 			stock: 200,
 			available: true,
 			featured: true,
@@ -94,7 +94,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 120,
-			image: "eclair-cup.jpg",
+			image: "images/eclair-cup.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -106,7 +106,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 220,
-			image: "orange-twist.jpg",
+			image: "images/orange-twist.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -118,7 +118,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 200,
-			image: "dacquoise.jpg",
+			image: "images/dacquoise.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -130,7 +130,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 200,
-			image: "fruit-tart.jpg",
+			image: "images/fruit-tart.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -142,7 +142,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 170,
-			image: "matcha-tart.jpg",
+			image: "images/matcha-tart.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -154,7 +154,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 170,
-			image: "feuille.jpg",
+			image: "images/feuille.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -166,7 +166,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 220,
-			image: "kladdkaka.jpg",
+			image: "images/kladdkaka.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -178,7 +178,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 210,
-			image: "dariole.jpg",
+			image: "images/dariole.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -190,7 +190,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 180,
-			image: "tiramisu-cup.jpg",
+			image: "images/tiramisu-cup.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -202,7 +202,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 180,
-			image: "fruit-cup.jpg",
+			image: "images/fruit-cup.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -214,7 +214,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 180,
-			image: "mousse-cup.jpg",
+			image: "images/mousse-cup.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
@@ -226,7 +226,7 @@ module.exports = async function getCategories() {
 			description:
 				"Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. Massa sapien faucibus et molestie ac. Nunc sed id semper risus in hendrerit gravida, dolor magna eget est lorem.",
 			price: 180,
-			image: "cheesecake.jpg",
+			image: "images/cheesecake.jpg",
 			stock: 200,
 			available: true,
 			featured: false,
