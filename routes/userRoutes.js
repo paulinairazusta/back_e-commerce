@@ -6,9 +6,13 @@ const { expressjwt: checkJwt } = require("express-jwt");
 userRouter.post("/api/user", userController.register);
 userRouter.post("/api/login", userController.login);
 
-userRouter.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
+// userRouter.use(checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }));
 
-userRouter.get("/api/users", userController.getAllUsers);
+userRouter.get(
+  "/api/users",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  userController.getAllUsers
+);
 /*ESTA RUTA SE CARGA CUANDO EL USUARIO ESTA LOGUEADO Y ENTRA A SU PERFIL,
 SI NO TIENE TOKEN NO PUEDE INGRESAR, SOLO ES PARA PROBAR LA INFO YA ESTA EN LA STORE*/
 // userRouter.get(

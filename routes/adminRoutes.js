@@ -5,12 +5,20 @@ const { expressjwt: checkJwt } = require("express-jwt");
 
 adminRouter.post("/admin/login", adminController.login);
 
-adminRouter.use(
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
+// adminRouter.use(
+//   checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
+// );
+
+adminRouter.get(
+  "/api/admins",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  adminController.getAllAdmins
 );
 
-adminRouter.get("/api/admins", adminController.getAllAdmins);
-
-adminRouter.post("/admin/register", adminController.register);
+adminRouter.post(
+  "/admin/register",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  adminController.register
+);
 
 module.exports = adminRouter;
