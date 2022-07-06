@@ -42,13 +42,13 @@ const productController = {
 					upsert: false,
 					contentType: files.image.mimetype,
 				});
-
+			console.log(newFileName);
 			await Product.create({
 				name: fields.name,
 				description: fields.description,
 				price: fields.price,
 				stock: fields.stock,
-				image: data.Key,
+				image: newFileName,
 				destacado: fields.destacado,
 				slug: slugify(fields.name, { lower: true }),
 				category: fields.category, //Hay que pasarle el id de la categoria!!
@@ -84,7 +84,7 @@ const productController = {
 					name: fields.name,
 					description: fields.description,
 					price: fields.price,
-					image: data.Key,
+					image: newFileName,
 					stock: fields.stock,
 				}
 			);
