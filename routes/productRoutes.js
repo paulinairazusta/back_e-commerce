@@ -14,11 +14,13 @@ productRouter.get("/pruebita", (req, res) => {
 
 productRouter.get("/api/products", productController.getAllProducts);
 productRouter.get("/api/product/:slug", productController.getProductBySlug);
-
-productRouter.post("/api/product", productController.createProduct);
-
 productRouter.patch("/api/product", productController.productSold);
 
+productRouter.use(
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
+);
+
+productRouter.post("/api/product", productController.createProduct);
 productRouter.delete("/api/product/:id", productController.productAvailable);
 
 module.exports = productRouter;
