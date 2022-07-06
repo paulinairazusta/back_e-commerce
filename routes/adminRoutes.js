@@ -1,10 +1,24 @@
 const express = require("express");
 const adminRouter = express.Router();
 const adminController = require("../controllers/adminController");
+const { expressjwt: checkJwt } = require("express-jwt");
 
-adminRouter.get("/api/admins", adminController.getAllAdmins);
-
-adminRouter.post("/admin/register", adminController.register);
 adminRouter.post("/admin/login", adminController.login);
+
+// adminRouter.use(
+//   checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
+// );
+
+adminRouter.get(
+  "/api/admins",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  adminController.getAllAdmins
+);
+
+adminRouter.post(
+  "/admin/register",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  adminController.register
+);
 
 module.exports = adminRouter;
