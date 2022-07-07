@@ -16,7 +16,12 @@ const User = Schema({
   },
   address: String,
   tel: Number,
-  orderList: [],
+  orderList: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
 });
 
 //middleware que se ejecuta antes de guardar y hashea las passwords

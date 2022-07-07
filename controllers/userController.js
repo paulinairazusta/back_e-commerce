@@ -25,7 +25,9 @@ const userController = {
     res.send(users);
   },
   getUserById: async (req, res) => {
-    const user = await User.findOne({ _id: req.params.id });
+    const user = await User.findOne({ _id: req.params.id }).populate(
+      "orderList"
+    );
 
     res.json(user);
   },
@@ -33,7 +35,9 @@ const userController = {
   login: async (req, res) => {
     //busco si el usuario existe en la base de datos y comparo las contraseñas
     try {
-      const user = await User.findOne({ email: req.body.email.inputEmail });
+      const user = await User.findOne({
+        email: req.body.email.inputEmail,
+      }).populate("orderList");
       const result = await user.comparePass(req.body.password.inputPassword);
 
       if (user && result) {

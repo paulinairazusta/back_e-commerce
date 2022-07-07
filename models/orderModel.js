@@ -6,7 +6,10 @@ const Order = Schema({
   status: String,
   date: Date,
   totalPrice: Number,
-  user: {},
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Order", Order);
