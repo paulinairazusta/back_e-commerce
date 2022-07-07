@@ -2,7 +2,7 @@ const express = require("express");
 const categoryRouter = express.Router();
 const categoryController = require("../controllers/categoryController");
 
-categoryRouter.get("/api/categories", categoryController.getAllCategories);
-categoryRouter.post("/create/category", categoryController.createCategory);
+categoryRouter.get("/api/category", categoryController.getAllCategories);
+categoryRouter.post("/api/category", categoryController.createCategory);
 
 module.exports = categoryRouter;
