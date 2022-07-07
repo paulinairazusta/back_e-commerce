@@ -42,14 +42,13 @@ const productController = {
 					upsert: false,
 					contentType: files.image.mimetype,
 				});
-			console.log(newFileName);
 			await Product.create({
 				name: fields.name,
 				description: fields.description,
 				price: fields.price,
 				stock: fields.stock,
 				image: newFileName,
-				destacado: fields.destacado,
+				featured: fields.featured,
 				slug: slugify(fields.name, { lower: true }),
 				category: fields.category, //Hay que pasarle el id de la categoria!!
 			});
@@ -86,6 +85,8 @@ const productController = {
 					price: fields.price,
 					image: newFileName,
 					stock: fields.stock,
+					featured: fields.featured,
+					category: fields.category,
 				}
 			);
 		});
