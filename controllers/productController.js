@@ -56,7 +56,7 @@ const productController = {
 
 		res.send("producto agregado!");
 	},
-	productEdit: async (req, res) => {
+	productEdit: (req, res) => {
 		const form = formidable({
 			multiples: true,
 			keepExtensions: true,
@@ -77,6 +77,7 @@ const productController = {
 					upsert: false,
 					contentType: files.image.mimetype,
 				});
+
 			await Product.updateOne(
 				{ _id: fields.id },
 				{
@@ -91,7 +92,6 @@ const productController = {
 			);
 		});
 	},
-	//Entra aca cuando se hace checkout en el carrito
 	productSold: async (req, res) => {
 		res.send("exitoo");
 	},

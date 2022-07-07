@@ -14,7 +14,7 @@ const { expressjwt: checkJwt } = require("express-jwt");
 
 productRouter.get("/api/products", productController.getAllProducts);
 productRouter.get("/api/product/:slug", productController.getProductBySlug);
-productRouter.patch("/api/product", productController.productSold);
+productRouter.patch("/api/product", productController.productEdit);
 
 // productRouter.use(
 //   checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
