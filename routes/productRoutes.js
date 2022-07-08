@@ -14,21 +14,25 @@ const { expressjwt: checkJwt } = require("express-jwt");
 
 productRouter.get("/api/products", productController.getAllProducts);
 productRouter.get("/api/product/:slug", productController.getProductBySlug);
-productRouter.patch("/api/product", productController.productEdit);
+productRouter.patch(
+  "/api/product",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  productController.productEdit
+);
 
 // productRouter.use(
 //   checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
 // );
 
 productRouter.post(
-	"/api/product",
-	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-	productController.createProduct
+  "/api/product",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  productController.createProduct
 );
 productRouter.delete(
-	"/api/product/:id",
-	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-	productController.productAvailable
+  "/api/product/:id",
+  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+  productController.productAvailable
 );
 
 module.exports = productRouter;
