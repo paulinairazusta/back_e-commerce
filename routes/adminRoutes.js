@@ -10,15 +10,16 @@ adminRouter.post("/admin/login", adminController.login);
 // );
 
 adminRouter.get(
-  "/api/admins",
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-  adminController.getAllAdmins
+	"/api/admins",
+	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+	adminController.getAllAdmins
 );
 
 adminRouter.post(
-  "/admin/register",
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
-  adminController.register
+	"/admin/register",
+	checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+	adminController.register
 );
+adminRouter.delete("api/admins/:id", adminController.deleteAdmin);
 
 module.exports = adminRouter;
