@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 //libreria para generar el token una vez logueado correctamente
 const jwt = require("jsonwebtoken");
+const dbInitialSetup = require("../models/db");
 
 const userController = {
   register: async (req, res) => {
@@ -22,6 +23,7 @@ const userController = {
   },
   getAllUsers: async (req, res) => {
     const users = await User.find();
+    console.log("goli", users);
     res.send(users);
   },
   getUserById: async (req, res) => {
@@ -62,6 +64,9 @@ const userController = {
     } catch (error) {
       res.json({ message: "Wrong credentials" });
     }
+  },
+  deleteUser: async (req, res) => {
+    await User.deleteOne({ _id: req.params.id });
   },
 };
 
