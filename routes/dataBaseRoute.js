@@ -6,6 +6,7 @@ dataBaseRouter.post("/reset", async (req, res) => {
 	await require("../seeders/categorySeeder")();
 	await require("../seeders/productSeeder")();
 	await require("../seeders/adminSeeder")();
+	res.send("done");
 });
 
 module.exports = dataBaseRouter;
