@@ -11,7 +11,7 @@ orderRouter.post("/create/order", orderController.createOrder);
 
 orderRouter.get(
   "/api/orders",
-  checkJwt({ secret: process.env.SECRET, algorithms: ["HS256"] }),
+
   orderController.getOrders
 );
 
