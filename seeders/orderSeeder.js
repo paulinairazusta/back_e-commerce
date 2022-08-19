@@ -18,5 +18,8 @@ module.exports = async () => {
     user: user._id,
   });
   order.save();
+  await User.findByIdAndUpdate(req.body.user._id, {
+    $push: { orderList: order._id },
+  });
   console.log("Order has been created!");
 };
