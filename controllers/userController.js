@@ -23,7 +23,6 @@ const userController = {
   },
   getAllUsers: async (req, res) => {
     const users = await User.find();
-    console.log("goli", users);
     res.send(users);
   },
   getUserById: async (req, res) => {
