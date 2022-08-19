@@ -9,10 +9,6 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-async function hola() {
-  await require("./seeders/orderSeeder")();
-}
-hola();
 routes(app);
 db();
 app.listen(port, () => {

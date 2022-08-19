@@ -1,10 +1,8 @@
 const Order = require("../models/orderModel");
 const User = require("../models/userModel");
-const Product = require("../models/productModel");
-
-const user = User.findOne({ firstname: "Juan" });
 
 module.exports = async () => {
+  const user = await User.findOne({ firstname: "Juan" });
   await Order.deleteMany({});
   const order = new Order({
     products: [
